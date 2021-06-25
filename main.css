@@ -9,6 +9,7 @@
     --btn-fg-color: #fff;
     --content-sm-color: #555;
     --content-p-color: #333;
+    --nav-fg-color: #fff;
 }
 
 * {
@@ -33,7 +34,7 @@ body {
 .content {
     padding: 2rem;
     max-width: 1000px;
-    margin: 50px auto;
+    margin: 7rem auto;
 }
 
 .content h1 {
@@ -48,6 +49,11 @@ body {
 .content p {
     color: var(--content-p-color);
     line-height: 1.5;
+}
+
+.container.show-nav + nav ul li {
+    transform: translateX(30%);
+    transition-delay: 0.3s;
 }
 
 .container {
@@ -77,6 +83,10 @@ img {
     position: fixed;
     top: -10rem; 
     left: -10rem;
+}
+
+.container.show-nav .circle {
+    transform: rotate(-75deg);
 }
 
 .circle {
@@ -112,4 +122,40 @@ img {
     top: 60%;
     transform: rotate(90deg);
     transform-origin: top left;
+    transition-delay: 0.3s;
+}
+
+nav {
+    position: fixed;
+    bottom: 4rem; 
+    left: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 3rem; 
+}
+
+nav ul li {
+    text-transform: uppercase;
+    color: var(--nav-fg-color);
+    margin: 2rem 0;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+nav ul li + li {
+    margin-left: 1.5rem;
+    transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+    margin-left: 3rem;
+    transform: translateX(-200%);
 }
